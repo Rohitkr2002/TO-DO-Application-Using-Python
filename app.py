@@ -13,16 +13,26 @@ class ToDoApp:
         self.task_entry = tk.Entry(self.frame, width=40)
         self.task_entry.pack(side=tk.LEFT, padx=10)
 
-        self.add_button = tk.Button(self.frame, text="Add Task", command=self.add_task)
+        # Add Task button with black border
+        self.add_button = tk.Button(self.frame, text="Add Task", font=("Arial Bold", 10), fg="red", 
+                                    highlightbackground="black", highlightthickness=2, command=self.add_task)
         self.add_button.pack(side=tk.LEFT)
 
         self.task_listbox = tk.Listbox(root, width=50, height=10, selectmode=tk.SINGLE)
         self.task_listbox.pack(pady=10)
 
-        self.complete_button = tk.Button(root, text="Mark as Completed", command=self.mark_completed)
+        # Create a frame to center the buttons
+        self.button_frame = tk.Frame(root)
+        self.button_frame.pack(pady=10)
+
+        # Mark as Completed button with black border
+        self.complete_button = tk.Button(self.button_frame, text="Mark as Completed", font=("Arial Bold", 10), fg="red", 
+                                         highlightbackground="black", highlightthickness=2, command=self.mark_completed)
         self.complete_button.pack(side=tk.LEFT, padx=10)
 
-        self.delete_button = tk.Button(root, text="Delete Task", command=self.delete_task)
+        # Delete Task button with black border
+        self.delete_button = tk.Button(self.button_frame, text="Delete Task", font=("Arial Bold", 10), fg="red", 
+                                       highlightbackground="black", highlightthickness=2, command=self.delete_task)
         self.delete_button.pack(side=tk.LEFT)
 
     def add_task(self):
